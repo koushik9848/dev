@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Login App</title>
+<style>
+    body {
+        font-family: Arial;
+        text-align: center;
+        margin-top: 50px;
+    }
+    #dashboard {
+        display: none;
+    }
+    #error-message {
+        color: red;
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Welcome to the Application</h1>
+
+<a href="#" id="get-started">Get started</a>
+
+<div id="login-section" style="display:none;">
+    <h2>Login</h2>
+    <input id="user_email_login" type="text" placeholder="Enter email"><br><br>
+    <input id="user_password" type="password" placeholder="Enter password"><br><br>
+    <button name="commit" id="login-btn">Login</button>
+
+    <p id="error-message">Invalid username or password!</p>
+</div>
+
+<div id="dashboard">
+    <h2>Dashboard</h2>
+    <p>Login successful! Welcome to your dashboard.</p>
+</div>
+
+<script>
+document.getElementById("get-started").addEventListener("click", function() {
+    document.getElementById("login-section").style.display = "block";
+});
+
+document.getElementById("login-btn").addEventListener("click", function() {
+    let email = document.getElementById("user_email_login").value;
+    let pass = document.getElementById("user_password").value;
+
+    if(email === "abc@gmail.com" && pass === "password") {
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("error-message").style.display = "none";
+    } else {
+        document.getElementById("error-message").style.display = "block";
+        document.getElementById("dashboard").style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
